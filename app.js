@@ -81,6 +81,6 @@ app.post('/agregar-frase', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}`);
-    console.log(`Página de frases en: http://localhost:${port}/frases-del-dia`);
+    console.log(`Servidor corriendo en https://pruebafrases-ah68.onrender.com/login.html`);
+    console.log(`Página de frases en: https://pruebafrases-ah68.onrender.com/`);
 });
