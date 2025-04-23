@@ -51,7 +51,7 @@ app.get('/frases/:dia', (req, res) => {
 });
 
 // Ruta para agregar frases según el día actual
-app.post('/agregar-frase', (req, res) => {
+app.post('/frases', (req, res) => {
     const nuevaFrase = req.body.frase;
     if (!nuevaFrase) {
         return res.status(400).send('No se proporcionó una frase.');
