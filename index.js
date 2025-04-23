@@ -8,7 +8,7 @@ function obtenerFraseDelDia() {
     const diaActual = dias[diaSemana]; // Ajustamos para que 1 = Lunes, 2 = Martes, etc.
 
     // Cargar la frase correspondiente del servidor
-    fetch(`https://pruebafrases-ah68.onrender.com/frases/${diaSemana}`)
+    fetch(`https://pruebafrases-kpfr.onrender.com/frases/${diaSemana}`)
         .then(response => response.text())
         .then(frase => {
             // Mostrar la frase en los contenedores correspondientes
