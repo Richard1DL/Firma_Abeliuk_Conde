@@ -401,6 +401,7 @@ audio {
     font-size: 1.1em;
     color: var(--color-text-dark);
     transition: color var(--transition-speed);
+    font-weight: bold;
 }
 
 /* Featured Areas Section (Áreas Destacadas de Práctica) */
@@ -441,7 +442,7 @@ audio {
 }
 
 .area-item h3 {
-    color: var(--color-primary); /* Ajustado a color-primary para el título en estado normal */
+    color: var(--color-bg-light);
 }
 
 .area-item p {
