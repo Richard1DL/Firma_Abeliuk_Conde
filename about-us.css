@@ -251,6 +251,7 @@
     line-height: 1.8;
     color: var(--color-text-dark);
     text-align: justify;
+    font-weight: bold;
 }
 
 /* Sección Nuestro Enfoque (Reutilizada del index, pero adaptada a about-us) */
