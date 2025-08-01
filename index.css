@@ -402,6 +402,7 @@ audio {
     color: var(--color-text-dark);
     transition: color var(--transition-speed);
     font-weight: bold;
+    text-align: justify;
 }
 
 /* Featured Areas Section (Áreas Destacadas de Práctica) */
@@ -448,6 +449,7 @@ audio {
 .area-item p {
     font-weight: bold;
     color: var(--color-text-dark); /* Ajustado a color-text-dark para el párrafo en estado normal */
+    text-align: justify;
 }
 
 .area-item:hover {
@@ -606,6 +608,10 @@ audio {
 
 .cta-section .logo-end-container a:hover .logo-text-end span:last-child {
     color: var(--color-secondary); /* Cambia a dorado en hover */
+}
+
+.container p {
+    font-weight: bold;
 }
 
 
