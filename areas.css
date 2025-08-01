@@ -1,0 +1,918 @@
+/* css/areas.css */
+
+/*
+    =============================
+    Variables
+    ============================
+*/
+:root {
+    --color-primary: #1E3A60; /* Azul oscuro principal */
+    --color-secondary: #E3B23C; /* Dorado/Amarillo de acento */
+    --color-text-dark: #333333; /* Texto oscuro general */
+    --color-text-light: #ffffff; /* Texto claro */
+    --color-bg-light: #F8F8F8; /* Fondo muy claro */
+    --color-bg-dark: #2A3E50; /* Fondo oscuro (para alternar secciones) */
+    --font-heading: 'Playfair Display', serif; /* Fuente para títulos */
+    --font-body: 'Montserrat', sans-serif; /* Fuente para texto */
+    --border-radius-base: 8px;
+    --border-radius-large: 12px;
+    --box-shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.3s ease;
+}
+
+/*
+    =============================
+    Base / Reset
+    =============================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* Heredar color por defecto */
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*
+    =============================
+    Contenedor Global
+    =============================
+*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*
+    =============================
+    Botones Globales
+    =============================
+*/
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--border-radius-base);
+    font-family: var(--font-body);
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn-lg {
+    padding: 15px 40px;
+    font-size: 1.15em;
+}
+
+/*
+    =============================
+    Header / Navbar
+    =============================
+*/
+header {
+    background-color: var(--color-primary); /* Fondo oscuro para el header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Sticky o fixed si quieres que siempre esté visible */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo a { 
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Más espacio entre imagen y texto */
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo img {
+    height: 80px; /* Ligeramente más grande */
+    width: auto;
+    vertical-align: middle;
+    transition: transform var(--transition-speed); /* Transición para la imagen */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05; /* Un poco más juntos aún */
+}
+
+.logo-text span:first-child {
+    font-family: var(--font-heading);
+    font-size: 2em; /* Título principal del logo más grande */
+    font-weight: 700;
+    color: var(--color-bg-light);
+    transition: color var(--transition-speed);
+}
+
+.logo-text span:last-child {
+    font-family: var(--font-body);
+    font-size: 0.95em; /* Ligeramente más grande */
+    font-weight: 400;
+    color: var(--color-bg-light); /* Color más oscuro para mejor contraste */
+    transition: color var(--transition-speed);
+}
+
+.logo a:hover .logo-text span:first-child {
+    color: var(--color-secondary); /* El nombre principal del bufete cambia de color */
+}
+.logo a:hover .logo-text span:last-child {
+    color: var(--color-secondary); /* La segunda línea puede quedarse o cambiar a un tono más oscuro */
+}
+.logo a:hover img {
+    transform: scale(1.08); /* Pequeño zoom y elevación en la imagen del logo */
+    filter: brightness(1.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0; /* Anular padding del container para navbar */
+}
+
+.navbar .logo img {
+    height: 60px; /* Ajusta el tamaño de tu logo */
+    filter: brightness(0) invert(1); /* Para logos oscuros en fondos claros */
+    /* Si tu logo ya es claro para fondo oscuro, quita filter */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Espacio entre los enlaces de navegación */
+}
+
+.nav-links li a {
+    color: var(--color-text-light);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 10px 0;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary);
+    transition: width var(--transition-speed);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: var(--color-secondary);
+}
+
+/*
+    =============================
+    Sección Hero para Áreas de Práctica
+    =============================
+*/
+.hero-areas {
+    /* Puedes cambiar la imagen de fondo: url('images/bufete-fondo-areas.jpg') */
+    background: linear-gradient(135deg, var(--color-primary) 0%, rgba(30, 58, 95, 0.5) 100%), url('images/bufete-fondo3.jpeg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 150px 20px;
+    min-height: 70vh; /* Un poco menos alto que el principal, pero aún imponente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.3);
+}
+
+.hero-content-areas {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    animation: fadeInSlideUp 1.2s ease-out forwards;
+}
+
+/* Animación de entrada (si no está definida globalmente) */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-areas h1 {
+    font-family: var(--font-heading);
+    font-size: 4em;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+    color: var(--color-text-light);
+}
+
+.hero-areas p {
+    font-size: 1.4em;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Añade margen para el botón */
+    font-weight: bold;
+}
+
+/*
+    =============================
+    Botones Específicos de esta página
+    =============================
+*/
+.btn-secondary-outline {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid var(--color-secondary);
+    border-radius: var(--border-radius-base);
+    color: var(--color-secondary);
+    font-family: var(--font-body);
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-secondary-outline:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-3px);
+}
+
+/*
+    =============================
+    Sección de Resumen de Áreas Detalladas
+    =============================
+*/
+.practice-areas-summary-section {
+    padding: 100px 0;
+    background-color: var(--color-bg-light);
+    text-align: center;
+}
+
+.practice-areas-summary-section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.2em;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.practice-areas-summary-section .section-description {
+    font-size: 1.3em;
+    color: var(--color-text-dark);
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    line-height: 1.7;
+    font-weight: bold;
+}
+
+.practice-areas-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Columnas un poco más grandes */
+    gap: 40px; /* Espacio entre las tarjetas */
+    max-width: 1200px; /* Asegurar que no se estire demasiado */
+    margin: 0 auto;
+}
+
+.area-item-detailed {
+    background-color: var(--color-text-light);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--box-shadow-subtle);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    text-align: left; /* Alineado a la izquierda para mejor lectura de párrafos largos */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinear contenido a la izquierda */
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Borde sutil para definición */
+}
+
+.area-item-detailed:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--color-primary); /* Resaltar borde al pasar el ratón */
+}
+
+.area-item-detailed i {
+    font-size: 3.5em; /* Iconos un poco más grandes */
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+    display: block; /* Asegura que ocupe su propia línea y el margen funcione */
+}
+
+.area-item-detailed h3 {
+    font-family: var(--font-heading);
+    font-size: 2.2em; /* Títulos más grandes */
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.area-item-detailed p {
+    font-size: 0.95em; /* Párrafos claros */
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    margin-bottom: 20px; /* Añadimos margen para separar del botón/info */
+    text-align: justify;
+    font-weight: normal; /* Cambiado a normal para la descripción principal */
+    font-weight: bold;
+}
+
+/* Call to Action al final de la sección de áreas */
+.practice-areas-summary-section .cta-text {
+    font-size: 1.3em;
+    color: var(--color-text-dark);
+    margin-top: 60px; /* Espacio entre el grid y el CTA */
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+    =============================
+    Estilos para la información adicional (tarifas/condiciones)
+    =============================
+*/
+.cta-text {
+    font-weight: bold;
+}
+
+.area-additional-info {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.15); /* Línea divisoria sutil */
+    text-align: left; /* Asegurar alineación */
+    /* Estilos para el efecto de slide */
+    max-height: 0; /* Por defecto oculto */
+    overflow: hidden; /* Oculta el contenido que excede */
+    transition: max-height 0.7s ease-out, padding-top 0.7s ease-out, opacity 0.7s ease-out; /* Transición suave */
+    opacity: 0; /* Inicialmente transparente */
+}
+
+.area-additional-info.visible { /* Clase que JavaScript agregará/quitará */
+    max-height: 1000px; /* Suficientemente grande para contener todo el contenido */
+    opacity: 1; /* Visible */
+    padding-top: 20px; /* Asegura el padding cuando está visible */
+}
+
+.area-additional-info h4 {
+    font-family: var(--font-body);
+    font-size: 1.3em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.area-additional-info ul,
+.area-additional-info ol {
+    list-style-position: inside; /* Mover el bullet/número dentro del contenido */
+    margin-bottom: 15px;
+    padding-left: 0;
+}
+
+.area-additional-info ul li,
+.area-additional-info ol li {
+    font-size: 0.95em;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+    line-height: 1.6;
+    text-align: justify;
+    padding-left: 10px; /* Pequeño padding para alinear el texto después del bullet/número */
+    text-indent: -10px; /* Indentación negativa para alinear el bullet/número */
+}
+
+.area-additional-info ol {
+    list-style-type: decimal;
+}
+
+.area-additional-info ul {
+    list-style-type: disc;
+}
+
+.area-additional-info .note-info {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: rgba(227, 178, 60, 0.1);
+    border-left: 3px solid var(--color-secondary);
+    border-radius: var(--border-radius-base);
+}
+
+/* Ajustes para los elementos dentro de las listas si quieres un énfasis */
+.area-additional-info ul li strong {
+    color: var(--color-primary);
+}
+
+/* Estilos para el botón "Ver más / Ver menos" */
+.toggle-info-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 20px 30px;
+    border-radius: var(--border-radius-base);
+    font-size: 0.95em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    margin-top: 20px; /* Espacio superior para separarlo del contenido */
+    align-self: center; /* Alinearlo a la derecha dentro de la tarjeta */
+}
+
+.toggle-info-btn:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+
+/*
+    =============================
+    Footer
+    =============================
+*/
+footer {
+    background-color: var(--color-primary); /* Cambiado a color-primary para un footer más oscuro y cohesivo */
+    color: var(--color-text-light);
+    padding: 60px 0;
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+footer .container {
+    padding: 0 20px; /* Asegurar padding en el footer */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    color: var(--color-secondary); /* Color de acento para los títulos del footer */
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-speed);
+}
+
+.footer-col a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-col ul li a {
+    display: block; /* Asegura que toda el área del texto sea clickeable */
+    padding: 5px 0;
+}
+
+/* Mapa de Google en Footer */
+.footer-col.map-col iframe {
+    border-radius: var(--border-radius-base);
+    /* Ajustado para un fondo primario oscuro: */
+    filter: grayscale(80%) brightness(1.2); /* Un filtro para hacerlo más monocromático y un poco más claro sobre fondo oscuro */
+    opacity: 0.9;
+    transition: all var(--transition-speed);
+}
+
+.footer-col.map-col iframe:hover {
+    filter: grayscale(0%) brightness(1); /* Volver a color completo y brillo normal */
+    opacity: 1;
+}
+
+.footer-col .map-note {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links-bottom a:hover {
+    color: var(--color-secondary);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.whatsapp-link i {
+    color: #25D366; /* El color verde de WhatsApp */
+    margin-right: 5px; /* Un poco de espacio entre el ícono y el texto */
+    font-size: 1.2em; /* Puedes ajustar el tamaño */
+}
+
+/* Nuevos estilos para el botón de control de música */
+.music-toggle-btn {
+    position: fixed; /* O 'absolute' si quieres que se desplace con el scroll */
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-primary); /* Usa tu color primario */
+    color: var(--color-text-light); /* Texto claro para contraste */
+    border: none;
+    border-radius: 50%; /* Para hacerlo redondo */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; /* Tamaño del ícono */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    z-index: 1001; /* Asegúrate de que esté por encima de casi todo */
+}
+
+.music-toggle-btn:hover {
+    background-color: var(--color-secondary); /* Cambio de color al pasar el ratón */
+    transform: scale(1.1); /* Ligero agrandamiento al pasar el ratón */
+}
+
+/*
+    =============================
+    Media Queries para Responsive Design (Generales y Específicos)
+    =============================
+*/
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column; /* Apilar logo y enlaces */
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar .logo {
+        margin-bottom: 15px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Enlaces apilados verticalmente */
+        width: 100%;
+        gap: 0; /* Eliminar el gap horizontal */
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: block; /* Para que ocupen todo el ancho */
+        text-align: center;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none; /* Eliminar borde inferior del último enlace */
+    }
+
+    .nav-links li a::after {
+        display: none; /* Quitar la animación de subrayado para móvil */
+    }
+    /* Botón de música en tablet */
+    .music-toggle-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+    }
+}
+
+
+/* Tabletas y pantallas medianas (768px a 992px) */
+@media (max-width: 992px) {
+    .hero-areas {
+        padding: 120px 20px;
+        min-height: 50vh;
+    }
+    .hero-areas h1 {
+        font-size: 3.2em;
+    }
+    .hero-areas p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+
+    .practice-areas-summary-section {
+        padding: 80px 0;
+    }
+    .practice-areas-summary-section h2 {
+        font-size: 2.8em;
+    }
+    .practice-areas-summary-section .section-description {
+        font-size: 1.1em;
+        margin-bottom: 50px;
+    }
+
+    .practice-areas-grid-detailed {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste para que quepan 2 en tabletas */
+        gap: 30px;
+    }
+    .area-item-detailed {
+        padding: 30px;
+    }
+    .area-item-detailed i {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .area-item-detailed h3 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    .area-item-detailed p {
+        font-size: 1em;
+    }
+    .area-additional-info h4 { /* Ajuste para pantallas medianas */
+        font-size: 1.2em;
+    }
+    .area-additional-info ul li,
+    .area-additional-info ol li {
+        font-size: 0.9em;
+    }
+    .area-additional-info .note-info {
+        font-size: 0.85em;
+    }
+    .practice-areas-summary-section .cta-text {
+        font-size: 1.1em;
+        margin-top: 50px;
+    }
+
+    /* Footer tablet adjustments */
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .footer-col h3 {
+        font-size: 1.4em;
+    }
+    /* Botón de música en móvil grande */
+    .music-toggle-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+}
+
+/* Teléfonos y pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    .hero-areas {
+        padding: 100px 20px;
+        min-height: 40vh;
+    }
+    .hero-areas h1 {
+        font-size: 2.5em;
+    }
+    .hero-areas p {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+
+    .practice-areas-summary-section {
+        padding: 60px 0;
+    }
+    .practice-areas-summary-section h2 {
+        font-size: 2.2em;
+    }
+    .practice-areas-summary-section .section-description {
+        font-size: 0.95em;
+        margin-bottom: 40px;
+    }
+
+    .practice-areas-grid-detailed {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+        gap: 25px;
+    }
+    .area-item-detailed {
+        padding: 25px;
+    }
+    .area-item-detailed i {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+    }
+    .area-item-detailed h3 {
+        font-size: 1.6em;
+    }
+    .area-item-detailed p {
+        font-size: 0.9em;
+    }
+    .area-additional-info h4 { /* Ajuste para pantallas pequeñas */
+        font-size: 1.1em;
+    }
+    .area-additional-info ul li,
+    .area-additional-info ol li {
+        font-size: 0.85em;
+    }
+    .area-additional-info .note-info {
+        font-size: 0.8em;
+        padding: 8px 12px;
+    }
+    .practice-areas-summary-section .cta-text {
+        font-size: 1em;
+        margin-top: 40px;
+    }
+
+    /* Footer mobile adjustments */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Apilar columnas en móvil */
+        text-align: center;
+    }
+    .footer-col {
+        margin-bottom: 30px;
+    }
+    .footer-col:last-child {
+        margin-bottom: 0;
+    }
+    .social-icons {
+        justify-content: center; /* Centrar iconos sociales */
+    }
+    .footer-col.map-col iframe {
+        height: 180px; /* Ajustar altura del mapa en móvil */
+    }
+    .footer-bottom {
+        flex-direction: column; /* Apilar copyright y enlaces */
+    }
+    .footer-links-bottom {
+        margin-top: 10px;
+    }
+    .footer-links-bottom a {
+        display: block;
+        margin: 5px 0;
+    }
+    /* Botón de música en móvil pequeño */
+    .music-toggle-btn {
+        bottom: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.1em;
+    }
+}
+
+/* Teléfonos muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+    .hero-areas {
+        padding: 80px 15px;
+        min-height: 35vh;
+    }
+    .hero-areas h1 {
+        font-size: 2em;
+    }
+    .hero-areas p {
+        font-size: 0.9em;
+    }
+    .btn-secondary-outline {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .practice-areas-summary-section h2 {
+        font-size: 1.8em;
+    }
+    .practice-areas-summary-section .section-description {
+        font-size: 0.85em;
+        margin-bottom: 30px;
+    }
+    .area-item-detailed i {
+        font-size: 2.5em;
+    }
+    .area-item-detailed h3 {
+        font-size: 1.4em;
+    }
+    .area-item-detailed p {
+        font-size: 0.85em;
+    }
+    .area-additional-info h4 { /* Ajuste para pantallas muy pequeñas */
+        font-size: 1em;
+    }
+    .area-additional-info ul li,
+    .area-additional-info ol li {
+        font-size: 0.8em;
+    }
+    .area-additional-info .note-info {
+        font-size: 0.75em;
+        padding: 6px 10px;
+    }
+    .practice-areas-summary-section .cta-text {
+        font-size: 0.9em;
+        margin-top: 30px;
+    }
+    /* Botón de música en móvil pequeño */
+    .music-toggle-btn {
+        bottom: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.1em;
+    }
+}
