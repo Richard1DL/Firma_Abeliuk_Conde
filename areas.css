@@ -336,6 +336,7 @@ header {
     max-width: 800px;
     margin: 0 auto 60px auto;
     line-height: 1.7;
+    font-weight: bold;
 }
 
 .practice-areas-grid-detailed {
