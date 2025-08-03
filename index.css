@@ -1,0 +1,1000 @@
+/* Generales y Reset */
+:root {
+    --color-primary: #1e3a5f; /* Azul marino profundo */
+    --color-secondary: #b8860b; /* Dorado oscuro, un color más sofisticado */
+    --color-tertiary: #007bff; /* Un azul claro para acentos específicos si es necesario */
+    --color-text-dark: #333333; /* Texto oscuro principal */
+    --color-text-light: #f8f8f8; /* Texto claro para fondos oscuros */
+    --color-bg-light: #fcfcfc; /* Fondo muy claro, casi blanco */
+    --color-bg-dark: #eef3f7; /* Un gris azulado muy claro para alternar secciones */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --transition-speed: 0.4s ease-in-out;
+    --border-radius-base: 8px;
+    --box-shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7; /* Mayor interlineado para mejor legibilidad */
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Asegura un desplazamiento suave */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px; /* Aumentado a 30px para un poco más de aire */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary); /* Los enlaces por defecto también toman el color de acento */
+}
+
+ul {
+    list-style: none;
+}
+
+/* Ocultar el reproductor de audio nativo por defecto */
+audio {
+    display: none;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 14px 30px; /* Un poco más grandes */
+    border-radius: var(--border-radius-base);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border: 2px solid var(--color-secondary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary); /* Cambia a azul marino profundo */
+    border-color: var(--color-primary);
+    transform: translateY(-4px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
+}
+
+.btn-secondary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary); /* En el CTA, el botón secundario debe ser claro */
+    border: 2px solid var(--color-text-light); /* Borde claro */
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary); /* Cambia al dorado al pasar el ratón */
+    border-color: var(--color-secondary);
+    color: var(--color-primary); /* Texto oscuro en hover */
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-lg {
+    padding: 18px 40px;
+    font-size: 1.15em;
+    border-radius: 10px;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--color-primary);
+    padding: 5px 0; /* Más relleno */
+    box-shadow: var(--box-shadow-subtle); /* Sombra más sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo (Header) */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Más espacio entre imagen y texto */
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    vertical-align: middle;
+    transition: transform var(--transition-speed), filter var(--transition-speed);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05; /* Un poco más juntos aún */
+}
+
+.logo-text span:first-child {
+    font-family: var(--font-heading);
+    font-size: 2em; /* Título principal del logo más grande */
+    font-weight: 700;
+    color: var(--color-text-light);
+    transition: color var(--transition-speed);
+}
+
+.logo-text span:last-child {
+    font-family: var(--font-body);
+    font-size: 0.95em; /* Ligeramente más grande */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8); /* Color para mejor contraste */
+    transition: color var(--transition-speed);
+}
+
+.logo a:hover .logo-text span:first-child {
+    color: var(--color-secondary); /* El nombre principal del bufete cambia de color */
+}
+.logo a:hover .logo-text span:last-child {
+    color: var(--color-secondary); /* También cambia a acento */
+}
+.logo a:hover img {
+    transform: scale(1.08); /* Pequeño zoom y elevación en la imagen del logo */
+}
+
+/* Navegación */
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 35px; /* Más espacio entre elementos del menú */
+}
+
+.main-nav ul li a {
+    color: var(--color-text-light);
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px; /* Para que la línea quede debajo */
+    transition: color var(--transition-speed);
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary);
+    left: 50%; /* Centra la línea */
+    transform: translateX(-50%); /* Centra la línea */
+    bottom: -8px; /* Más abajo para no tocar el texto */
+    transition: width var(--transition-speed);
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after {
+    width: 100%;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: var(--color-secondary);
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh; /* Ocupa más de la pantalla */
+    background: linear-gradient(135deg, var(--color-primary) 0%, rgba(30, 58, 95, 0.7) 100%), url('images/bufete-fondo.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Efecto Parallax sutil */
+    color: var(--color-text-light);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 5px 20px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Capa oscura más sutil */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    animation: fadeInScale 1.2s ease-out forwards; /* Animación más larga */
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 4.3em; /* Título más grande y dominante */
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.4); /* Sombra de texto más fuerte */
+    color: var(--color-text-light); /* Asegura que el color sea claro */
+}
+
+.hero-content p {
+    font-family: var(--font-body);
+    font-size: 1.5em; /* Párrafo más grande */
+    margin-bottom: 50px; /* Más espacio antes del botón */
+    opacity: 0.95;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+/* Animaciones */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* About Section (Quiénes Somos) */
+.about-section {
+    padding: 80px 0; /* Más padding */
+    background-color: var(--color-bg-light); /* Fondo claro */
+    position: relative; /* Agregado para que el botón de scroll se posicione correctamente */
+}
+
+.about-section .container {
+    display: flex;
+    align-items: center;
+    gap: 80px; /* Más espacio entre contenido e imagen */
+    flex-wrap: wrap;
+}
+
+.about-content {
+    flex: 2;
+    min-width: 320px;
+    padding-right: 20px; /* Pequeño padding derecho para separación */
+}
+
+.about-content h2 {
+    font-size: 2.5em; /* Título más prominente */
+    margin-bottom: 25px;
+}
+
+.about-content .lead-paragraph {
+    font-size: 1em; /* Párrafo principal más grande */
+    font-weight: bold;
+    text-align: justify;
+    margin-bottom: 25px;
+    color: var(--color-text-dark);
+}
+
+.about-content .word-black{
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.about-content p {
+    margin-bottom: 25px;
+    text-align: justify;
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color-text-dark);
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-subtle);
+    transition: transform var(--transition-speed);
+}
+.about-image img:hover {
+    transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
+    box-shadow: var(--box-shadow-hover);
+}
+
+
+/* Approach Section */
+.approach-section {
+    background-color: var(--color-primary); /* Fondo gris azulado claro */
+    padding: 100px 0;
+    text-align: center;
+    position: relative; /* Agregado para que el botón de scroll se posicione correctamente */
+}
+
+.approach-section h2 {
+    font-family: var(--font-heading);
+    font-size: 3.2em;
+    color: var(--color-secondary);
+    margin-bottom: 70px; /* Más espacio */
+    line-height: 1.2;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px; /* Más espacio entre ítems */
+}
+
+.approach-item {
+    background-color: var(--color-bg-light); /* Ítems individuales con fondo claro */
+    padding: 40px; /* Más padding */
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-subtle);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borde sutil */
+}
+
+.approach-item:hover {
+    transform: translateY(-12px); /* Elevación más dramática */
+    box-shadow: var(--box-shadow-hover);
+    background-color: var(--color-secondary); /* Fondo cambia a color de acento */
+    color: var(--color-text-light); /* Texto se vuelve claro */
+}
+
+.approach-item:hover i,
+.approach-item:hover h3,
+.approach-item:hover p {
+    color: var(--color-text-light); /* Todos los elementos dentro cambian de color */
+}
+
+
+.approach-item i {
+    font-size: 4em; /* Íconos más grandes */
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+    display: block;
+    transition: color var(--transition-speed);
+}
+
+.approach-item h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 18px;
+    transition: color var(--transition-speed);
+}
+
+.approach-item p {
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    transition: color var(--transition-speed);
+    font-weight: bold;
+    text-align: justify;
+}
+
+/* Featured Areas Section (Áreas Destacadas de Práctica) */
+.featured-areas-section {
+    padding: 100px 0;
+    text-align: center;
+    background-color: var(--color-bg-light); /* Fondo claro de nuevo */
+    position: relative; /* Agregado para que el botón de scroll se posicione correctamente */
+}
+
+.featured-areas-section h2 {
+    font-size: 3.2em;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1.4em;
+    color: var(--color-text-dark);
+    margin-bottom: 60px; /* Más espacio */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Más espacio */
+    margin-bottom: 60px;
+}
+
+.area-item {
+    background-color: var(--color-primary); /* Ítems individuales con fondo gris azulado claro */
+    padding: 35px; /* Más padding */
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-subtle);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    text-align: center;
+}
+
+.area-item:hover {
+    transform: translateY(-8px); /* Elevación */
+    box-shadow: var(--box-shadow-hover);
+    background-color: var(--color-primary); /* Fondo cambia a azul marino */
+}
+
+.area-item:hover h3,
+.area-item:hover p {
+    color: var(--color-secondary); /* En hover, el texto y título cambian a dorado */
+}
+
+.area-item:hover i,
+.area-item:hover .link-more {
+    color: var(--color-text-light); /* Icono y enlace "Ver más" cambian a claro en hover */
+}
+
+.area-item:hover .link-more i {
+    color: var(--color-text-light); /* Asegura que la flecha también cambie */
+}
+
+.area-item i {
+    font-size: 3.5em; /* Íconos más grandes */
+    color: var(--color-secondary);
+    margin-bottom: 25px;
+    transition: color var(--transition-speed);
+}
+
+.area-item h3 {
+    color: var(--color-bg-light);
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    transition: color var(--transition-speed);
+}
+
+.area-item p {
+    font-size: 1em;
+    color: var(--color-text-light); /* Un gris un poco más oscuro */
+    margin-bottom: 25px;
+    transition: color var(--transition-speed);
+}
+
+.link-more {
+    font-weight: 600;
+    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Más espacio */
+    transition: color var(--transition-speed);
+}
+
+.link-more:hover {
+    color: var(--color-tertiary); /* Cambia a un azul más vibrante al pasar el ratón */
+}
+
+.link-more i {
+    font-size: 0.95em; /* Ajusta el tamaño del icono de flecha */
+    margin-bottom: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(90deg, var(--color-primary) 0%, #172d4b 100%); /* Degradado de azul oscuro a uno un poco más oscuro */
+    color: var(--color-text-light);
+    padding: 100px 20px; /* Más padding */
+    text-align: center;
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra interna para profundidad */
+    /* Nueva adición para centrar el logo y su contenido */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos hijos */
+    justify-content: center; /* Centra verticalmente si hay espacio */
+    position: relative; /* Agregado para que el botón de scroll se posicione correctamente */
+}
+
+.cta-section h2 {
+    color: var(--color-text-light);
+    font-size: 3.5em; /* Título más grande */
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.cta-section p {
+    font-size: 1.5em; /* Párrafo más grande */
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+}
+
+/*
+    =============================
+    Estilos Específicos para el Logo al Final del CTA
+    ============================
+*/
+.cta-section .logo-end-container {
+    margin-bottom: 40px; /* Más espacio entre el logo y el H2 del CTA */
+}
+
+.cta-section .logo-end-container a {
+    display: flex; /* Ahora el enlace es el contenedor flex */
+    flex-direction: row; /* Para que el logo e imagen estén en fila (como el header) */
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente el contenido del enlace */
+    gap: 12px; /* Espacio entre imagen y texto del logo */
+    text-decoration: none;
+    color: inherit;
+    transition: transform var(--transition-speed);
+}
+
+.cta-section .logo-end-container a:hover {
+    transform: translateY(-5px); /* Pequeña elevación al pasar el ratón */
+}
+
+.cta-section .logo-end {
+    height: 60px; /* Tamaño inicial del logo */
+    width: auto;
+    /* margin-bottom: 10px; Este margen se manejaba antes, ahora el gap del padre se encarga */
+    /* filter: brightness(0) invert(1); /* Si el logo es oscuro y necesitas que sea blanco en este fondo oscuro */
+    transition: filter var(--transition-speed);
+}
+
+.cta-section .logo-end-container a:hover .logo-end {
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+.cta-section .logo-text-end {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05; /* Un poco más juntos aún */
+}
+
+.cta-section .logo-text-end span:first-child {
+    font-family: var(--font-heading);
+    font-size: 2em; /* Mismo tamaño que en el header para coherencia */
+    font-weight: 700;
+    color: var(--color-text-light);
+    transition: color var(--transition-speed);
+}
+
+.cta-section .logo-text-end span:last-child {
+    font-family: var(--font-body);
+    font-size: 0.95em; /* Mismo tamaño que en el header para coherencia */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-speed);
+}
+
+.cta-section .logo-end-container a:hover .logo-text-end span:first-child {
+    color: var(--color-secondary); /* Cambia a dorado en hover */
+}
+
+.cta-section .logo-end-container a:hover .logo-text-end span:last-child {
+    color: var(--color-secondary); /* Cambia a dorado en hover */
+}
+
+.container p {
+    font-weight: bold;
+}
+
+/*
+    =============================
+    Footer
+    =============================
+*/
+footer {
+    background-color: var(--color-primary); /* Cambiado a color-primary para un footer más oscuro y cohesivo */
+    color: var(--color-text-light);
+    padding: 60px 0;
+    font-family: var(--font-body);
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+footer .container {
+    padding: 0 20px; /* Asegurar padding en el footer */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6em;
+    color: var(--color-secondary); /* Color de acento para los títulos del footer */
+    margin-bottom: 20px;
+}
+
+.footer-col p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-speed);
+}
+
+.footer-col a:hover {
+    color: var(--color-secondary);
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-col ul li a {
+    display: block; /* Asegura que toda el área del texto sea clickeable */
+    padding: 5px 0;
+}
+
+/* Mapa de Google en Footer */
+.footer-col.map-col iframe {
+    border-radius: var(--border-radius-base);
+    /* Ajustado para un fondo primario oscuro: */
+    filter: grayscale(80%) brightness(1.2); /* Un filtro para hacerlo más monocromático y un poco más claro sobre fondo oscuro */
+    opacity: 0.9;
+    transition: all var(--transition-speed);
+}
+
+.footer-col.map-col iframe:hover {
+    filter: grayscale(0%) brightness(1); /* Volver a color completo y brillo normal */
+    opacity: 1;
+}
+
+.footer-col .map-note {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links-bottom a {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links-bottom a:hover {
+    color: var(--color-secondary);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.whatsapp-link i {
+    color: #25D366; /* El color verde de WhatsApp */
+    margin-right: 5px; /* Un poco de espacio entre el ícono y el texto */
+    font-size: 1.2em; /* Puedes ajustar el tamaño */
+}
+
+/* Nuevos estilos para el botón de control de música */
+.music-toggle-btn {
+    position: fixed; /* O 'absolute' si quieres que se desplace con el scroll */
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-primary); /* Usa tu color primario */
+    color: var(--color-text-light); /* Texto claro para contraste */
+    border: none;
+    border-radius: 50%; /* Para hacerlo redondo */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em; /* Tamaño del ícono */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    z-index: 1001; /* Asegúrate de que esté por encima de casi todo */
+}
+
+.music-toggle-btn:hover {
+    background-color: var(--color-secondary); /* Cambio de color al pasar el ratón */
+    transform: scale(1.1); /* Ligero agrandamiento al pasar el ratón */
+}
+
+/* Estilos para el botón de desplazamiento - A-C-T-U-A-L-I-Z-A-D-O */
+.scroll-down-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 40px; /* Posicionado a 40px del borde izquierdo */
+    transform: none; /* Eliminamos el transform para que no lo centre */
+    color: var(--color-secondary);
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* Alineamos el contenido a la izquierda */
+    gap: 10px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.scroll-down-btn:hover {
+    color: var(--color-bg-dark);
+    transform: translateY(-5px); /* Un ligero efecto de elevación en hover */
+}
+
+.scroll-down-btn i {
+    font-size: 1.5em; 
+    transition: color 0.3s ease-in-out;
+    animation: bounceLeftRight 2s infinite; /* Nueva animación para que "rebote" */
+}
+
+@keyframes bounceLeftRight {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px; /* Ajusta el padding en tablets */
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+    .about-section .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+    .about-content {
+        padding-right: 0;
+    }
+    .about-image {
+        order: -1;
+        margin-bottom: 30px;
+    }
+    .approach-section h2, .about-content h2, .featured-areas-section h2, .cta-section h2 {
+        font-size: 2.8em;
+    }
+    .approach-grid, .areas-grid {
+        gap: 30px;
+    }
+    /* Botón de música en tablet */
+    .music-toggle-btn {
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3em;
+    }
+    .scroll-down-btn {
+        font-size: 1em;
+    }
+    .scroll-down-btn i {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        align-items: center; /* Centrar logo en móvil */
+    }
+    .main-nav ul {
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-nav ul li {
+        margin: 0 12px 10px 12px;
+    }
+    .hero-section {
+        min-height: 70vh;
+        padding: 60px 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .approach-section h2, .about-content h2, .featured-areas-section h2, .cta-section h2 {
+        font-size: 2.4em;
+    }
+    .approach-grid, .areas-grid {
+        grid-template-columns: 1fr;
+    }
+    .cta-section h2 {
+        font-size: 2.8em;
+    }
+    .cta-section p {
+        font-size: 1.3em;
+    }
+    .logo a {
+        flex-direction: row; /* Mantener en fila en el header */
+        justify-content: center;
+        width: auto; /* Dejar que el contenido defina el ancho */
+    }
+    .logo img {
+        height: 40px;
+    }
+    .logo-text span:first-child {
+        font-size: 1.8em;
+    }
+    .logo-text span:last-child {
+        font-size: 0.9em;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.95em;
+    }
+    .btn-lg {
+        padding: 15px 35px;
+        font-size: 1.05em;
+    }
+    /* Logo en CTA en móvil */
+    .cta-section .logo-end-container a {
+        flex-direction: column; /* Apila el logo y el texto en móvil dentro del CTA */
+        gap: 5px; /* Menos espacio en móvil */
+    }
+    .cta-section .logo-end {
+        height: 50px; /* Reducir tamaño en pantallas más pequeñas */
+        margin-bottom: 0; /* Eliminar el margen inferior si está en columna */
+    }
+    .cta-section .logo-text-end span:first-child {
+        font-size: 1.5em;
+    }
+    .cta-section .logo-text-end span:last-child {
+        font-size: 0.8em;
+    }
+    .cta-section .logo-end-container {
+        margin-bottom: 20px; /* Menos margen en móvil */
+    }
+    /* Botón de música en móvil grande */
+    .music-toggle-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+    .scroll-down-btn {
+        font-size: 0.9em;
+    }
+    .scroll-down-btn i {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    .hero-section {
+        min-height: 60vh;
+        padding: 40px 15px;
+    }
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+    .main-nav ul li {
+        margin: 0 8px 10px 8px;
+        font-size: 0.9em;
+    }
+    .about-content h2, .approach-section h2, .featured-areas-section h2, .cta-section h2 {
+        font-size: 2em;
+    }
+    .lead-paragraph {
+        font-size: 1.1em;
+    }
+    .cta-section p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .logo img {
+        height: 35px;
+    }
+    .logo-text span:first-child {
+        font-size: 1.6em;
+    }
+    .logo-text span:last-child {
+        font-size: 0.8em;
+    }
+    .approach-item i, .area-item i {
+        font-size: 3em;
+    }
+    .approach-item h3, .area-item h3 {
+        font-size: 1.6em;
+    }
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    /* Botón de música en móvil pequeño */
+    .music-toggle-btn {
+        bottom: 8px;
+        right: 8px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.1em;
+    }
+    /* Botón de música en móvil grande */
+    .music-toggle-btn {
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2em;
+    }
+    .scroll-down-btn {
+        font-size: 0.8em;
+    }
+    .scroll-down-btn i {
+        font-size: 1.2em;
+    }
+}
