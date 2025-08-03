@@ -37,5 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Llamadas a la función para las secciones de la página "Quiénes Somos" (about-us.html) ---
-    handleScrollDownButton('main-header', 'team-section');
+    handleScrollDownButton('hero-staff', 'team-section');
 });
+
