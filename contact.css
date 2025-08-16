@@ -456,11 +456,11 @@ ul {
 
 /*
     =============================
-    Footer
+    Footer - Versión Corregida
     =============================
 */
 footer {
-    background-color: var(--color-primary); /* Cambiado a color-primary para un footer más oscuro y cohesivo */
+    background-color: var(--color-primary);
     color: var(--color-text-light);
     padding: 60px 0;
     font-family: var(--font-body);
@@ -469,20 +469,31 @@ footer {
 }
 
 footer .container {
-    padding: 0 20px; /* Asegurar padding en el footer */
+    padding: 0 20px;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Define 4 áreas para los 4 divs y una para el "bottom" */
+    grid-template-areas:
+        "about links contact map"
+        "bottom bottom bottom bottom";
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    margin-bottom: 40px;
 }
 
+/* Asigna cada área a su clase correspondiente */
+.about-col { grid-area: about; }
+.links-col { grid-area: links; }
+.contact-col { grid-area: contact; }
+.map-col { grid-area: map; }
+.footer-bottom-grid { grid-area: bottom; }
+
+/* Estilos de los títulos y textos */
 .footer-col h3 {
     font-family: var(--font-heading);
     font-size: 1.6em;
-    color: var(--color-accent); /* Color de acento para los títulos del footer */
+    color: var(--color-accent);
     margin-bottom: 20px;
 }
 
@@ -510,26 +521,21 @@ footer .container {
     margin-bottom: 10px;
 }
 
-.footer-col ul li:last-child {
-    margin-bottom: 0;
-}
-
 .footer-col ul li a {
-    display: block; /* Asegura que toda el área del texto sea clickeable */
+    display: block;
     padding: 5px 0;
 }
 
 /* Mapa de Google en Footer */
 .footer-col.map-col iframe {
     border-radius: var(--border-radius-base);
-    /* Ajustado para un fondo primario oscuro: */
-    filter: grayscale(80%) brightness(1.2); /* Un filtro para hacerlo más monocromático y un poco más claro sobre fondo oscuro */
+    filter: grayscale(80%) brightness(1.2);
     opacity: 0.9;
     transition: all var(--transition-speed);
 }
 
 .footer-col.map-col iframe:hover {
-    filter: grayscale(0%) brightness(1); /* Volver a color completo y brillo normal */
+    filter: grayscale(0%) brightness(1);
     opacity: 1;
 }
 
@@ -540,8 +546,8 @@ footer .container {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Footer Bottom */
-.footer-bottom {
+/* Footer Bottom (ahora en el grid) */
+.footer-bottom-grid {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     text-align: center;
@@ -872,3 +878,4 @@ footer .container {
         font-size: 1.2em;
     }
 }
+
