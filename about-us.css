@@ -5,7 +5,7 @@
 /* ======================================= */
 :root {
     --color-primary: #1E3A60; /* Azul oscuro principal */
-    --color-secondary: #E3B23C; /* Dorado/Amarillo de acento */
+    --color-secondary: #FFD700; /* Dorado/Amarillo de acento */
     --color-text-dark: #333333; /* Texto oscuro general */
     --color-text-light: #ffffff; /* Texto claro */
     --color-bg-light: #F8F8F8; /* Fondo muy claro */
@@ -171,7 +171,7 @@ a:hover {
 
 .main-nav a {
     color: var(--color-text-light);
-    font-weight: 500;
+    font-weight: bold;
     padding: 10px 0;
     position: relative;
     transition: color 0.3s ease;
@@ -1081,4 +1081,5 @@ footer .container {
     .value-item i {
         font-size: 3em;
     }
+
 }
