@@ -226,7 +226,7 @@ ul {
 
 .main-nav ul li a {
     color: var(--color-text-light);
-    font-weight: 500;
+    font-weight: bold;
     position: relative;
     padding-bottom: 5px;
     transition: color var(--transition-speed);
@@ -1001,3 +1001,4 @@ footer .container {
         font-size: 1.2em;
     }
 }
+
