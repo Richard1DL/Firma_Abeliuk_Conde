@@ -6,6 +6,7 @@
 :root {
     --color-primary: #1E3A60; /* Azul oscuro principal */
     --color-secondary: #FFD700; /* Dorado/Amarillo de acento */
+    --color-blue: #095af0; /* Azul oscuro */
     --color-text-dark: #333333; /* Texto oscuro general */
     --color-text-light: #ffffff; /* Texto claro */
     --color-bg-light: #F8F8F8; /* Fondo muy claro */
@@ -209,7 +210,7 @@ a:hover {
     background-attachment: fixed;
     color: var(--color-text-light);
     text-align: center;
-    padding: 150px 20px;
+    padding: 5px 10px;
     min-height: 85vh;
     display: flex;
     align-items: center;
@@ -224,6 +225,7 @@ a:hover {
     z-index: 2;
     max-width: 900px;
     animation: fadeInSlideUp 1.2s ease-out forwards;
+    margin-bottom: 5em;
 }
 
 @keyframes fadeInSlideUp {
@@ -241,7 +243,7 @@ a:hover {
     font-family: var(--font-heading);
     font-size: 4.5em;
     margin-bottom: 25px;
-    line-height: 1.1;
+    line-height: 1.4em;
     text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
     color: var(--color-text-light);
 }
@@ -250,9 +252,18 @@ a:hover {
     font-family: var(--font-heading);
     font-size: 2.5em;
     margin-bottom: 25px;
-    line-height: 1.1;
+    line-height: 1.1em;
     text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
     color: var(--color-text-light);
+}
+
+.hero-content-about h6 {
+    font-family: var(--font-heading);
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
+    color: var(--color-text-light);
+    line-height: 0.7em;
 }
 
 .hero-about p {
@@ -293,7 +304,7 @@ a:hover {
 .founder-content h3 {
     font-family: var(--font-body);
     font-size: 1.8em;
-    color: var(--color-secondary);
+    color: var(--color-blue);
     margin-top: 0;
     margin-bottom: 5px;
     font-weight: 600;
@@ -460,7 +471,7 @@ a:hover {
 }
 
 .approach-section-about .approach-item {
-    background-color: var(--color-text-light);
+    background-color: var(--color-primary);
     padding: 40px;
     border-radius: var(--border-radius-base);
     box-shadow: var(--box-shadow-subtle);
@@ -478,7 +489,7 @@ a:hover {
 .approach-section-about .approach-item:hover i,
 .approach-section-about .approach-item:hover h3,
 .approach-section-about .approach-item:hover p {
-    color: var(--color-text-light);
+    color: var(--color-primary);
 }
 
 .approach-section-about .approach-item i {
@@ -492,14 +503,14 @@ a:hover {
 .approach-section-about .approach-item h3 {
     font-family: var(--font-heading);
     font-size: 2em;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     margin-bottom: 18px;
     transition: color var(--transition-speed);
 }
 
 .approach-section-about .approach-item p {
     font-size: 1.1em;
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
     transition: color var(--transition-speed);
     text-align: justify;
     font-weight: bold;
@@ -578,13 +589,10 @@ a:hover {
 }
 
 .value-item:hover i,
-.value-item:hover h3 {
+.value-item:hover h3,
+.value-item:hover p {
     color: var(--color-primary);
 }
-.value-item:hover p {
-    color: var(--color-text-dark);
-}
-
 
 .value-item i {
     font-size: 4em;
@@ -610,7 +618,7 @@ a:hover {
 
 .value-item p {
     font-size: 1.05em;
-    color: var(--color-bg-dark);
+    color: var(--color-primary);
     line-height: 1.7;
     transition: color 0.4s ease;
     position: relative;
@@ -1081,5 +1089,4 @@ footer .container {
     .value-item i {
         font-size: 3em;
     }
-
 }
