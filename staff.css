@@ -326,20 +326,24 @@ ul {
 
 .team-section h2 {
     font-family: var(--font-heading);
-    font-size: 4em;
+    font-size: 4.5em;
     color: var(--color-primary);
     margin-bottom: 25px;
     font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .team-section .section-description {
     font-size: 1.3em;
-    color: var(--color-bg-dark);
+    color: var(--color-text-light);
     margin-bottom: 70px;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
+    background-color: #0021b3;
+    border-radius: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
 
 .team-grid-wrapper {
@@ -433,6 +437,16 @@ ul {
     font-size: 1.8em;
     color: var(--color-primary);
     margin-bottom: 5px;
+    text-align: center;
+}
+
+.team-member h6 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .team-member h4 {
@@ -1001,4 +1015,3 @@ footer .container {
         font-size: 1.2em;
     }
 }
-
