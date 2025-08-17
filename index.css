@@ -11,8 +11,8 @@
     --font-body: 'Montserrat', sans-serif;
     --transition-speed: 0.4s ease-in-out;
     --border-radius-base: 8px;
-    --box-shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --box-shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -291,11 +291,11 @@ audio {
 .hero-content p {
     font-family: var(--font-body);
     font-size: 1.5em; /* Párrafo más grande */
-    margin-bottom: 50px; /* Más espacio antes del botón */
+    margin-bottom: 70px; /* Más espacio antes del botón */
     opacity: 0.95;
-    max-width: 700px;
+    max-width: 750px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 15px;
     font-weight: bold;
 }
 
@@ -366,9 +366,11 @@ audio {
 .about-image img {
     max-width: 100%;
     height: auto;
+    width: 20em;
     border-radius: var(--border-radius-base);
     box-shadow: var(--box-shadow-subtle);
     transition: transform var(--transition-speed);
+    margin-bottom: 25px;
 }
 .about-image img:hover {
     transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
@@ -591,10 +593,10 @@ audio {
     flex-direction: row; /* Para que el logo e imagen estén en fila (como el header) */
     align-items: center;
     justify-content: center; /* Centra horizontalmente el contenido del enlace */
-    gap: 12px; /* Espacio entre imagen y texto del logo */
     text-decoration: none;
     color: inherit;
     transition: transform var(--transition-speed);
+    gap: 12px; /* Separación imagen al texto */
 }
 
 .cta-section .logo-end-container a:hover {
@@ -604,8 +606,6 @@ audio {
 .cta-section .logo-end {
     height: 60px; /* Tamaño inicial del logo */
     width: auto;
-    /* margin-bottom: 10px; Este margen se manejaba antes, ahora el gap del padre se encarga */
-    /* filter: brightness(0) invert(1); /* Si el logo es oscuro y necesitas que sea blanco en este fondo oscuro */
     transition: filter var(--transition-speed);
 }
 
@@ -645,6 +645,52 @@ audio {
 
 .container p {
     font-weight: bold;
+}
+
+/*
+    =============================
+    Segundo logo cte
+    =============================
+*/
+.logo-end-2 {
+    height: 60px; /* Tamaño inicial del logo */
+    width: auto;
+    transition: filter var(--transition-speed);
+}
+
+.logo-end-container a:hover .logo-end-2 {
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+.logo-text-end-2 {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05; /* Un poco más juntos aún */
+    margin-left: 30px;
+}
+
+.logo-text-end-2 span:first-child {
+    font-family: var(--font-heading);
+    font-size: 2em; /* Mismo tamaño que en el header para coherencia */
+    font-weight: 700;
+    color: var(--color-text-light);
+    transition: color var(--transition-speed);
+}
+
+.logo-text-end-2 span:last-child {
+    font-family: var(--font-body);
+    font-size: 0.95em; /* Mismo tamaño que en el header para coherencia */
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color var(--transition-speed);
+}
+
+.cta-section .logo-end-container-2 a:hover .logo-text-end span:first-child {
+    color: var(--color-secondary); /* Cambia a dorado en hover */
+}
+
+.cta-section .logo-end-container-2 a:hover .logo-text-end span:last-child {
+    color: var(--color-secondary); /* Cambia a dorado en hover */
 }
 
 /*
@@ -744,6 +790,11 @@ footer .container {
     align-items: center;
     gap: 10px;
     line-height: 0.9em;
+}
+
+.links-col {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-links-bottom a {
