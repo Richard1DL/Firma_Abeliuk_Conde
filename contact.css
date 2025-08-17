@@ -391,7 +391,7 @@ ul {
     color: var(--color-text-light);
     border: none;
     border-radius: var(--border-radius-small);
-    font-size: 1.1em;
+    font-size: 1.4em;
     font-weight: 700;
     cursor: pointer;
     transition: background-color var(--transition-speed), transform var(--transition-speed);
@@ -939,4 +939,3 @@ footer .container {
         font-size: 1.2em;
     }
 }
-
