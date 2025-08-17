@@ -7,7 +7,7 @@
 */
 :root {
     --color-primary: #1E3A60; /* Azul oscuro principal */
-    --color-secondary: #E3B23C; /* Dorado/Amarillo de acento */
+    --color-secondary: ##FFD700; /* Dorado/Amarillo de acento */
     --color-text-dark: #333333; /* Texto oscuro general */
     --color-text-light: #ffffff; /* Texto claro */
     --color-bg-light: #F8F8F8; /* Fondo muy claro */
@@ -224,7 +224,7 @@ header {
 .nav-links li a {
     color: var(--color-text-light);
     font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: bold;
     font-size: 1.05em;
     padding: 10px 0;
     position: relative;
@@ -1002,3 +1002,4 @@ footer .container {
         font-size: 1.1em;
     }
 }
+
