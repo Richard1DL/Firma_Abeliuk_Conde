@@ -7,8 +7,9 @@
 */
 :root {
     --color-primary: #1E3A60; /* Azul oscuro principal */
-    --color-secondary: ##FFD700; /* Dorado/Amarillo de acento */
+    --color-secondary: #FFD700; /* Dorado/Amarillo de acento */
     --color-text-dark: #333333; /* Texto oscuro general */
+    --color-blue:  #060afa;
     --color-text-light: #ffffff; /* Texto claro */
     --color-bg-light: #F8F8F8; /* Fondo muy claro */
     --color-bg-dark: #2A3E50; /* Fondo oscuro (para alternar secciones) */
@@ -62,7 +63,7 @@ img {
     =============================
 */
 .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 15px; /* Reducimos el padding para que los elementos se acerquen a los bordes */
 }
@@ -100,7 +101,8 @@ img {
 
 .btn-lg {
     padding: 15px 40px;
-    font-size: 1.15em;
+    font-size: 1.3em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
 /*
@@ -292,7 +294,7 @@ header {
 
 .hero-areas h1 {
     font-family: var(--font-heading);
-    font-size: 4em;
+    font-size: 4.2em;
     margin-bottom: 25px;
     line-height: 1.1;
     text-shadow: 4px 4px 12px rgba(0,0,0,0.5);
@@ -300,9 +302,9 @@ header {
 }
 
 .hero-areas p {
-    font-size: 1.4em;
+    font-size: 1.6em;
     opacity: 0.95;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto 40px auto; /* Añade margen para el botón */
     font-weight: bold;
 }
@@ -354,13 +356,13 @@ header {
 }
 
 .practice-areas-summary-section .section-description {
-    font-size: 1.3em;
-    color: var(--color-text-dark);
-    max-width: 800px;
+    font-size: 1.5em;
+    color: var(--color-primary);
+    max-width: 1000px;
     margin: 0 auto 60px auto;
     line-height: 1.7;
     font-weight: bold;
-}
+}   
 
 .practice-areas-grid-detailed {
     display: grid;
@@ -391,9 +393,11 @@ header {
 
 .area-item-detailed i {
     font-size: 3.5em; /* Iconos un poco más grandes */
-    color: var(--color-secondary);
+    color: var(--color-blue);
     margin-bottom: 25px;
     display: block; /* Asegura que ocupe su propia línea y el margen funcione */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .area-item-detailed h3 {
@@ -402,6 +406,8 @@ header {
     color: var(--color-primary);
     margin-bottom: 15px;
     line-height: 1.3;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .area-item-detailed p {
@@ -504,7 +510,7 @@ header {
 
 /* Estilos para el botón "Ver más / Ver menos" */
 .toggle-info-btn {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary);
     color: var(--color-text-light);
     border: none;
     padding: 20px 30px;
@@ -574,6 +580,11 @@ header {
     }
 }
 
+.text-center .cta-text {
+    color: var(--color-primary);
+    font-size: 1.7em;
+    max-width: 900em;
+}
 
 /*
     =============================
@@ -590,12 +601,11 @@ footer {
 }
 
 footer .container {
-    padding: 0 20px;
+    padding: 0;
 }
 
 .footer-grid {
     display: grid;
-    /* Define 4 áreas para los 4 divs y una para el "bottom" */
     grid-template-areas:
         "about links contact map"
         "bottom bottom bottom bottom";
@@ -604,7 +614,10 @@ footer .container {
 }
 
 /* Asigna cada área a su clase correspondiente */
-.about-col { grid-area: about; }
+.about-col {
+    grid-area: auto;
+    margin-right: auto;
+}
 .links-col { grid-area: links; }
 .contact-col { grid-area: contact; }
 .map-col { grid-area: map; }
@@ -1002,4 +1015,3 @@ footer .container {
         font-size: 1.1em;
     }
 }
-
