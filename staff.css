@@ -476,8 +476,9 @@ ul {
 
 .member-social a {
     color: var(--color-primary);
-    font-size: 1.8em;
+    font-size: 1em;
     transition: color var(--transition-speed), transform var(--transition-speed);
+    font-weight: bold;
 }
 
 .member-social a:hover {
