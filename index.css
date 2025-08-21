@@ -419,13 +419,13 @@ audio {
 .approach-item:hover i,
 .approach-item:hover h3,
 .approach-item:hover p {
-    color: var(--color-text-light); /* Todos los elementos dentro cambian de color */
+    color: var(--color-primary); /* Todos los elementos dentro cambian de color */
 }
 
 
 .approach-item i {
     font-size: 4em; /* Íconos más grandes */
-    color: var(--color-secondary);
+    color: var(--color-primary);
     margin-bottom: 25px;
     display: block;
     transition: color var(--transition-speed);
