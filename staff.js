@@ -37,9 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Llamadas a la función para las secciones de la página "Quiénes Somos" (about-us.html) ---
-    handleScrollDownButton('inicio', 'founder-section');
-    handleScrollDownButton('founder-section', 'mission-vision-section');
-    handleScrollDownButton('mission-vision-section', 'approach-section-about');
-    handleScrollDownButton('approach-section-about', 'values-section');
-    handleScrollDownButton('values-section', 'cta-section');
+    handleScrollDownButton('hero-staff', 'team-section');
 });
