@@ -150,7 +150,7 @@ audio {
 .logo-text-2 span:last-child {
     font-family: var(--font-body);
     font-size: 0.95em;
-    font-weight: 400;
+    font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
     transition: color var(--transition-speed);
 }   
@@ -188,7 +188,7 @@ audio {
 .logo-text span:last-child {
     font-family: var(--font-body);
     font-size: 0.95em; /* Ligeramente más grande */
-    font-weight: 400;
+    font-weight: bold;
     color: rgba(255, 255, 255, 0.8); /* Color para mejor contraste */
     transition: color var(--transition-speed);
 }
