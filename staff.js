@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const emailLinks = document.querySelectorAll('.member-social a[href^="mailto:"]');
         
         // Define el ancho de la pantalla para computadoras
-        const desktopWidth = 768;
+        const desktopWidth = 992;
 
         if (window.innerWidth > desktopWidth) {
             // Si es un computador, remueve el atributo 'href' para que no sean clicables
@@ -70,3 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Vuelve a ejecutar la función si la ventana cambia de tamaño (por si giran el celular)
     window.addEventListener('resize', handleEmailLinks);
 });
+
