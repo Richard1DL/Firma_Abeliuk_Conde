@@ -114,7 +114,7 @@ a:hover {
 .logo-text-2 span:last-child {
     font-family: var(--font-body);
     font-size: 0.95em;
-    font-weight: 400;
+    font-weight: bold;
     color: rgba(255, 255, 255, 0.8);
     transition: color var(--transition-speed);
 }
@@ -154,7 +154,7 @@ a:hover {
 .logo-text span:last-child {
     font-family: var(--font-body);
     font-size: 0.8em;
-    font-weight: 500;
+    font-weight: bold;
     letter-spacing: 1px;
     opacity: 0.8;
 }
