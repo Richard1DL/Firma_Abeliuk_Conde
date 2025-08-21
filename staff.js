@@ -36,6 +36,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Lógica para la funcionalidad condicional de los correos electrónicos ---
+    function handleEmailLinks() {
+        // Selecciona todos los enlaces que contienen la dirección de correo
+        const emailLinks = document.querySelectorAll('.member-social a[href^="mailto:"]');
+        
+        // Define el ancho de la pantalla para computadoras
+        const desktopWidth = 768;
+
+        if (window.innerWidth > desktopWidth) {
+            // Si es un computador, remueve el atributo 'href' para que no sean clicables
+            emailLinks.forEach(link => {
+                link.removeAttribute('href');
+            });
+        } else {
+            // Si es un celular, se asegura de que el href está presente.
+            // Esto es útil si el usuario gira el dispositivo.
+            emailLinks.forEach(link => {
+                const originalHref = link.getAttribute('data-original-href');
+                if (originalHref) {
+                    link.setAttribute('href', originalHref);
+                }
+            });
+        }
+    }
+
     // --- Llamadas a la función para las secciones de la página "Quiénes Somos" (about-us.html) ---
     handleScrollDownButton('hero-staff', 'team-section');
+    
+    // Ejecuta la función de los correos al cargar la página
+    handleEmailLinks();
+
+    // Vuelve a ejecutar la función si la ventana cambia de tamaño (por si giran el celular)
+    window.addEventListener('resize', handleEmailLinks);
 });
